@@ -69,4 +69,5 @@ Waddington Landscape Attractor는 Conrad Waddington이 제안한 Eigenetic Lands
 
 ## 출처
 [1] J. Wang, K. Zhang, L. Xu, and E. Wang, "Quantifying the Waddington landscape and biological paths for development and differentiation," Proc. Natl. Acad. Sci. U.S.A., vol. 108, no. 20, pp. 8257–8262, May 2011.
+<br>
 [2] A. T. Fard and M. A. Ragan, "Quantitative Modelling of the Waddington Epigenetic Landscape," in Computational Stem Cell Biology: Methods and Protocols (Methods in Molecular Biology, vol. 1975), P. P. L. Tam, W.-Y. Chan, and I. Kostovic, Eds. New York, NY, USA: Humana, 2019, pp. 157–171.

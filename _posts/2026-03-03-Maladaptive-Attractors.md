@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Maladaptive Attractors"
-date:   2026-03-03 01:00:00 +0900
+date:   2026-03-04 00:00:01 +0900
 categories: SystemBiology
 ---
 
