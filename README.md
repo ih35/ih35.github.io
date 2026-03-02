@@ -1,28 +1,22 @@
-# Bioinformation Archive
-> an archive
+# Bio-Information Archive
 
-**Blog**: [ih35.github.io](https://ih35.github.io)
-**title**: Genome Analysis, Algorithms, and Bioinformatics Data Processing using Python/R
+데이터로 생명을 탐구하는 **정보생물학(Bioinformatics)** 블로그입니다. 
+학습한 내용과 연구 과정을 기록합니다.
 
-## 로컬 개발 환경 실행
-This blog is built with Jekyll. Follow the course to preview locally.
 
-'''bash
+
+## 바로가기
+- **Blog**: [https://ih35.github.io](https://ih35.github.io)
+
+## 로컬에서 실행하기 (Local Development)
+이 환경은 Ruby 3.4+ 및 Jekyll 4.4.1 환경에 최적화되어 있습니다.
+
+```bash
+# 패키지 설치
 bundle install
+
+# 서버 실행 (Live Preview)
 bundle exec jekyll serve
-& "C:\Program Files\Git\bin\bash.exe"
-git add .
-git commit -M "nth commit"
-git push
-
-### 주요 카테고리 
-시스템생물학, 수학, 정보생물학
-
-```markdown
-## 주요 콘텐츠
-- **Genomics**: NGS 데이터 분석 및 Variant Calling
-- **Algorithms**: 생물학적 서열 정렬(Alignment) 및 트리 구축 알고리즘
-- **Tools**: BioPython, Bioconductor, Docker 활용법
 
 ---
 Proudly powered by [Jekyll](https://jekyllrb.com/) and [Plainwhite Theme](https://github.com/samarsault/plainwhite-jekyll)
