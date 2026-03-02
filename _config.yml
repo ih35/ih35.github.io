@@ -13,13 +13,13 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: ih35 # Adam Denisov
-  tagline: 개발자 # Developer. Designer
+  tagline: Systems Biology | Bioinformation Researcher # Developer. Designer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
   dark_mode: true # set to true to add dark mode toggle
   portfolio_image: "assets/orange.jpg" # the path from the base directory of the site to the image to display (no / at the start)
-  html_lang: "en" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+  html_lang: "ko" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
   condensed_mobile:
     #- home
     - page
@@ -58,3 +58,14 @@ theme: plainwhite
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+
+# 검색엔진에서 더 잘 검색되도록 설정
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 마크다운 엔진 설정
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
