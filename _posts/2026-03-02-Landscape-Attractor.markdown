@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Waddington Landscape Attractor"
-date:   2026-03-22 +0530
+date:   2026-03-02 +0530
 categories: SystemBiology
 ---
 
