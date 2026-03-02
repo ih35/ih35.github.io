@@ -2,7 +2,3 @@
 
 source "https://rubygems.org"
 gemspec
-
-gem "bigdecimal", "~> 4.0"
-
-gem "webrick", "~> 1.9"
