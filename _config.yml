@@ -13,7 +13,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: ih35 # Adam Denisov
-  tagline: Systems Biology | Bioinformation Researcher # Developer. Designer
+  tagline: Systems Biology | Bioinformation Research # Developer. Designer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar

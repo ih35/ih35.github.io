@@ -16,7 +16,7 @@ Waddington Landscape Attractor는 Conrad Waddington이 제안한 Eigenetic Lands
 
 
 <figure style="text-align: center;">
-  <img src="{{ '/assets/Waddingtons-epigenetic-landscape-depicts-the-process-of-development-as-balls-rolling.png' | relative_url }}" width="40%" alt="Waddington Landscape Diagram">
+  <img src="{{ '/assets/Waddingtons-epigenetic-landscape-depicts-the-process-of-development-as-balls-rolling.png' | relative_url }}" width="60%" alt="Waddington Landscape Diagram">
   <figcaption style="margin-top: 10px; font-size: 0.9em; color: #666;">
     Fig 1. Waddington's Epigenetic Landscape Diagram
   </figcaption>
