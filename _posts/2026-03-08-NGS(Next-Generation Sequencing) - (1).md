@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "NGS(Next-Generation Sequencing) - (1)"
+title:  "NGS(Next-Generation Sequencing) - (1): 개요"
 date:   2026-03-08 00:01:00 +0900
 categories: Bioinformatics
 ---
@@ -109,3 +109,10 @@ DNA 중합효소가 이 다리 구조를 따라 상보적인 가닥을 합성한
 
 ### 3.3. 데이터 출력
 시퀀싱이 완료되면 장비는 각 리드(Read)의 염기 정보와 해독 정확도를 나타내는 품질 점수(Quality score)를 포함하는 FASTQ 파일을 생성한다. 연구자는 실험 설계 단계에서 설정한 리드 길이(Read length)와 해독 깊이(Depth/Coverage)를 충족했는지 확인하며, 이 데이터를 기반으로 유전적 변이 탐지나 유전자 발현량 분석 등 후속 생물정보학 분석을 수행하게 된다.
+
+<br>
+
+## Reference
+[1] Dalong. (08.09.2022). NGS(Next Generation Sequencing) 기반 유전자 검사의 이해 - 심화용 (2). Dalong Space. https://dalong-space.tistory.com/10
+<br>
+[2] Dalong. (08.09.2022). NGS(Next Generation Sequencing) 기반 유전자 검사의 이해 - 심화용 (3). Dalong Space. https://dalong-space.tistory.com/11
