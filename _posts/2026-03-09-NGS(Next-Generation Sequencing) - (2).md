@@ -31,3 +31,63 @@ FASTQ 파일은 하나의 리드(Read)당 **4개의 행**이 하나의 단위를
 
 > *cf. 리드(Read)의 정확한 정의
 > NGS에서 Read는 시퀀싱 장비가 단일 DNA 단편(fragment)으로부터 읽어낸 염기서열 단위를 말한다. NGS 라이브러리 생성 단계에서 DNA를 수백 bp 크기로 자르고, 시퀀싱 장비의 Flow cell에 붙어 cluster를 형성한다. 장비는 하나의 cluster에서 광학 신호를 읽어 A, C, T, G 문자열을 만들어낸다. 이때 하나의 cluster(하나의 DNA framgent)로부터 생성된 하나의 연속된 문자열이 한개의 read이다. 
+
+<figure style="text-align: center;">
+  <img src="{{ '/assets/fastq_1.png' | relative_url }}" width="60%" alt="SRR12345678 fastq">
+  <figcaption style="margin-top: 10px; font-size: 0.9em; color: #666;">
+    Fig 1. fastq
+  </figcaption>
+</figure>
+
+{% highlight text %}
+@HWUSI-EAS100R:6:73:941:1973#0/1
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++HWUSI-EAS100R:6:73:941:1973#0/1
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65
+{% endhighlight %}
+<p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #666;">
+  Fig 2. fastq 파일 예시
+</p>
+
+<br>
+
+## 2. Phred Quality Score ($Q$)의 이해
+FASTQ 파일에서 가장 중요한 정보는 네 번째 행의 품질 점수이다. 이는 해당 위치의 염기가 얼마나 정확하게 읽혔는지를 확률적으로 나타낸다.
+
+> *cf. Phred Quality Score와 에러 확률
+Phred 점수($Q$)는 특정 염기가 잘못 판독되었을 확률($P$)을 기반으로 다음과 같은 로그 공식을 사용하여 산출된다.
+$$Q = -10 \log_{10}(P)$$
+예를 들어, $Q$ 점수가 30이라면($Q30$), 에러 확률 $P$는 $10^{-3}$ 즉 0.001(0.1%)이 된다. 이는 해당 염기가 **99.9%의 정확도**로 판독되었음을 의미한다. 생물정보학 분석에서는 보통 $Q20$ 이상을 분석 가능한 수준으로 보며, $Q30$ 이상을 고품질 데이터의 척도로 삼는다.
+
+<br>
+
+## 3. ASCII 인코딩과 Phred+33
+앞서 품질 점수는 ASCII 문자로 기록된다고 언급했다. 컴퓨터는 각 문자에 고유한 숫자를 할당하는데, 이를 ASCII 코드라고 한다.
+
+> *cf. 왜 하필 Phred+33인가?
+품질 점수 $Q$는 보통 0에서 40~42 사이의 값을 가진다. 그런데 ASCII 코드에서 0~31번까지는 '제어 문자'(출력되지 않는 문자)들이 배치되어 있다. 따라서 실제 출력 가능한 문자 중 가장 앞부분인 '!' (ASCII 33번)를 0점의 기준으로 삼는 방식을 주로 사용한다. 이를 **Phred+33** 혹은 **Sanger/Illumina 1.8+ encoding**이라고 부른다. 
+예를 들어, 품질 점수가 30($Q=30$)인 염기의 경우, 33에 30을 더한 63번에 해당하는 ASCII 문자 '?'가 네 번째 행에 기록된다.
+
+<br>
+
+## 4. 품질 관리(QC)의 중요성
+FASTQ 파일이 생성되면 본격적인 분석(정렬, 변이 탐지 등)에 들어가기 전, 반드시 데이터의 질을 평가해야 한다. 
+
+* **리드별 품질 저하:** 시퀀싱 과정에서 합성이 진행될수록(리드의 뒷부분으로 갈수록) 시약의 소모나 물리적 요인으로 인해 품질 점수가 떨어지는 경향이 있다. 
+* **어댑터 오염:** 라이브러리 제작 시 사용한 어댑터 서열이 제거되지 않고 포함되어 있을 수 있다.
+* **필터링:** 낮은 품질의 리드나 너무 짧은 리드를 제거하는 **Trimming** 과정을 통해 후속 분석의 정확도를 높인다. 이 과정에서 `FastQC`, `Trimmomatic`, `fastp` 등의 도구가 널리 사용된다.
+
+<br>
+
+## 5. FASTQ 파일 읽는 법
+
+리눅스 환경에서 SRA(Sequence Read Archive) 데이터를 FASTQ 형식으로 획득하기 위해서는 NCBI에서 제공하는 <b>SRA Toolkit</b>의 활용이 필수적이다. 
+먼저 "<code>prefetch [SRR ID]</code>" 명령어를 실행하여 원시 데이터를 로컬 저장소에 안정적으로 확보한 뒤, 
+"<code>fasterq-dump [SRR ID]</code>" 명령어를 통해 이를 압축 해제된 FASTQ 파일로 변환함으로써 후속 분석을 위한 데이터를 준비할 수 있다. 
+이 과정은 대규모 유전체 데이터를 정밀하게 처리하고 데이터 무결성을 유지하며 생물정보학 파이프라인으로 진입하기 위한 가장 기초적이고 핵심적인 단계이다.
+
+<br>
+
+## Reference
+[1] "FASTQ," 인코덤(IncoDOM), https://incodom.kr/FASTQ (접속일: 2025. 03. 11).
+<br>
