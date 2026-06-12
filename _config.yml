@@ -28,7 +28,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-theme: plainwhite
+remote_theme: samarsault/plainwhite-jekyll
 plainwhite:
   name: ih35
   tagline: Systems Biology | Bioinformation Research
